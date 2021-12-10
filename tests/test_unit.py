@@ -70,7 +70,7 @@ class TestCreate(TestBase):
     
    def test_complete_task(self:
      response =self.client.get(url_for('complete_task', id=1), follow_redirects=True)
-     self.assertEqual(Task.query.get(1).completed, True)
+     self.assertEqual(Tasks.query.get(1).completed, True)
                           
                           
  class TestDelete(Testbase):
