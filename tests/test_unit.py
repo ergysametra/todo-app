@@ -37,11 +37,9 @@ class TestViews(TestBase):
     
         
 class TestRead(TestBase):
-    def test_read_tasks(self):
-        response = self.client.get(url_for("home"))
-        self.assertIn("Test the application", str(response.data))
-    def tst_read_home_tasks(self):
-        response = self.client.get(url_for('read_tasks'))
+    
+    def test_read_home_tasks(self):
+        response = self.client.get(url_for('home'))
         self.assertIn(b"Run unit tests", response.data)
         
 
