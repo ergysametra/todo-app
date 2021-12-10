@@ -34,12 +34,7 @@ class TestViews(TestBase):
     def test_create_task_get(self):
         response = self.client.get(url_for("create_task"))
         self.assert200(response)
-    def test_read_tasks(self):
-        response = self.client.get(url_for('read_task'))
-        self.assert200(response)
-        
-    def test_update_task_get(self):
-        response = self.client.get(url_for('update_task', id=1))
+    
         
 class TestRead(TestBase):
     def test_read_tasks(self):
