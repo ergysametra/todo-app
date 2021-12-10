@@ -60,26 +60,3 @@ class TestCreate(TestBase):
         )
         self.assertIn(b"Testing create functionallity", response.data)
         
- class TestUpdate(TestBase):
-    response =self.client.post(
-        url_for('update_task', id=1),
-        data={"description": "Testing update funcionality"},
-        follow_redirects=True
-    )
-    self.assertIn(b"Testing update functionallity", response.data)  
-    
-   def test_complete_task(self:
-     response =self.client.get(url_for('complete_task', id=1), follow_redirects=True)
-     self.assertEqual(Tasks.query.get(1).completed, True)
-                          
-                          
- class TestDelete(Testbase):
-    
-    def test_delete_task(self:
-        response =self.client.get(
-            url_for('delete_task', id=1),
-            follow_redirects=True
-             )
-        self.assertIn(b"Run unit tests", response.data
-
-    
