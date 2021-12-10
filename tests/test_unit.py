@@ -42,7 +42,6 @@ class TestViews(TestBase):
         response = self.client.get(url_for('update_task', id=1))
         
 class TestRead(TestBase):
-    
     def test_read_tasks(self):
         response = self.client.get(url_for("home"))
         self.assertIn("Test the application", str(response.data))
