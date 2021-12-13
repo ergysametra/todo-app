@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh "mkdir newdir"
                 sh "cd newdir"
-                sh "touch"
+                sh "touch new file"
             
             }
         }
