@@ -1,20 +1,19 @@
-<<<<<<< HEAD
 pipeline {
     agent any
     stages {
         stage('Setup') {
             steps {
-                
-                //
-            }
-        }
-        stage('Test') {
-            steps {
-                sh "mkdir newdir"
+                 sh "mkdir newdir"
                 sh "cd newdir"
                 sh "touch"
+            
             }
         }
+        // stage('Test') {
+        //     steps {
+        //         //
+        //     }
+        // }
 //         stage('Create Schema') {
 //             steps {
 //                 //
@@ -27,6 +26,3 @@ pipeline {
 //         }
      }
  }
-=======
-
->>>>>>> 8b6db7fa9b5aa27c1f558f8d3f12f8c82825655b
