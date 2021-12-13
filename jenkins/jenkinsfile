@@ -15,15 +15,6 @@ pipeline {
                 sh "touch"
             }
         }
-//         stage('Create Schema') {
-//             steps {
-//                 //
-//             }
-//         }
-//         stage('Run') {
-//             steps {
-//                 //
-//             }
-//         }
+
      }
  }
