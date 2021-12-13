@@ -17,13 +17,12 @@ class TestBase(TestCase):
     def setUp(self):
         # Will be called before every test
         db.create_all() # create table schema
-
-        task = Tasks(description="Test the application")
-        db.session.add(task)
+        db.session.add(Tasks(description="Run unit tests"))
         db.session.commit()
 
     def tearDown(self):
         # Will be called after every test
+        db.session.remove()
         db.drop_all()
 
 class TestViews(TestBase):
@@ -35,28 +34,22 @@ class TestViews(TestBase):
     def test_create_task_get(self):
         response = self.client.get(url_for("create_task"))
         self.assert200(response)
+    
         
 class TestRead(TestBase):
     
-    def test_read_tasks(self):
-        response = self.client.get(url_for("home"))
-        self.assertIn("Test the application", str(response.data))
+    def test_read_home_tasks(self):
+        response = self.client.get(url_for('home'))
+        self.assertIn(b"Run unit tests", response.data)
+        
 
 class TestCreate(TestBase):
 
     def test_create_task(self):
         response = self.client.post(
             url_for("create_task"),
-            json={"description": "Add a new task"},
+            data={"description": "Testing create functionallity"},
             follow_redirects=True
         )
-        new_task = Tasks.query.get(2)
-        self.assertEqual("Add a new task", new_task.description)
-
-    def test_create_task_redirect(self):
-        response = self.client.post(
-            url_for("create_task"),
-            json={"description": "Add a new task"},
-            follow_redirects=True
-        )
-        self.assertIn("Add a new task", str(response.data))
+        self.assertIn(b"Testing create functionallity", response.data)
+        
