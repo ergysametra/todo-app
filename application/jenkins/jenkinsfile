@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    stages {
+        stage('Setup') {
+            steps {
+                //
+            }
+        }
+        stage('Test') {
+            steps {
+                sh "mkdir newdir"
+                sh "cd newdir"
+                sh "touch"
+            }
+        }
+//         stage('Create Schema') {
+//             steps {
+//                 //
+//             }
+//         }
+//         stage('Run') {
+//             steps {
+//                 //
+//             }
+//         }
+     }
+ }
