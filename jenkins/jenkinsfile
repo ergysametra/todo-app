@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                 sh "mkdir newdir"
+                sh "mkdir newdir"
                 sh "cd newdir"
                 sh "touch"
             
